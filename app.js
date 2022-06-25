@@ -52,11 +52,11 @@ function gameOver() {
         if (computerScore > playerScore){
             winnerText.style.color = 'red';
             winnerText.textContent = `Computer wins with ${computerScore} - ${playerScore}`
-            playAgainBtn.style.opacity = 1;
+            playAgainBtn.style.visibility = 'visible';
         }else {
             winnerText.style.color = 'green';
             winnerText.textContent = `You win with ${playerScore} - ${computerScore}`
-            playAgainBtn.style.opacity = 1;
+            playAgainBtn.style.visibility = 'visible';
         }
     }
 }
