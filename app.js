@@ -12,19 +12,17 @@ let items = ['rock','paper','scissors'];
 let roundCount = 1;
 let playerScore = 0 , computerScore =0;
 
-function game() {
-    
-    roundWinner.textContent = playRound(getComputerChoice(),getPlayerChoice(this));
-
-    // Insert round number ,the score after every round
-    roundNumber.textContent = roundCount;
-    score.textContent = `Player Score: ${playerScore}   | Computer Score: ${computerScore}`;
-}
-
 weapons.forEach(choice => {
     choice.addEventListener('click',game)
 });
 
+function game() {
+    roundWinner.textContent = playRound(getComputerChoice(),getPlayerChoice(this));
+    gameOver();
+    // Insert round number ,the score after every round
+    roundNumber.textContent = roundCount;
+    score.textContent = `Player Score: ${playerScore}   | Computer Score: ${computerScore}`;
+}
 function getComputerChoice () {
     return Math.floor(Math.random()*3);  
 }
@@ -47,4 +45,22 @@ function playRound (computerChoice,userChoice) {
         playerScore++
             return `You Win! ${items[userChoice]} beats ${items[computerChoice]}`
     }   
+}
+
+function gameOver() {
+    if(playerScore === 5 || computerScore === 5){
+        weapons.forEach(choice => {
+            choice.removeEventListener('click',game)
+        });
+
+        if (computerScore > playerScore){
+            winnerText.style.color = 'red';
+            winnerText.textContent = `Computer wins with ${computerScore} - ${playerScore}`
+            playAgainBtn.style.opacity = 1;
+        }else {
+            winnerText.style.color = 'green';
+            winnerText.textContent = `You win with ${playerScore} - ${computerScore}`
+            playAgainBtn.style.opacity = 1;
+        }
+    }
 }
