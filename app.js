@@ -12,10 +12,6 @@ let items = ['rock','paper','scissors'];
 let roundCount = 1;
 let playerScore = 0 , computerScore =0;
 
-weapons.forEach(choice => {
-    choice.addEventListener('click',game)
-});
-
 function game() {
     roundWinner.textContent = playRound(getComputerChoice(),getPlayerChoice(this));
     gameOver();
@@ -64,3 +60,10 @@ function gameOver() {
         }
     }
 }
+
+// Add event listners
+weapons.forEach(choice => {
+    choice.addEventListener('click',game)
+});
+
+playAgainBtn.addEventListener('click',() => location.reload());
