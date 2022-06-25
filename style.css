@@ -44,6 +44,10 @@ body{
     border:none;
     opacity: 0;
 }
+.winner button:hover {
+    cursor: pointer;
+   background-color: rgba(0, 0, 0, 0.381);
+}
 
 .round-winner {
     color: rgb(237, 235, 235);
