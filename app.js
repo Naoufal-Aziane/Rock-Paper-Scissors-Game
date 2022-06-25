@@ -14,6 +14,11 @@ let playerScore = 0 , computerScore =0;
 
 function game() {
     
+    roundWinner.textContent = playRound(getComputerChoice(),getPlayerChoice(this));
+
+    // Insert round number ,the score after every round
+    roundNumber.textContent = roundCount;
+    score.textContent = `Player Score: ${playerScore}   | Computer Score: ${computerScore}`;
 }
 
 weapons.forEach(choice => {
@@ -29,9 +34,7 @@ function getPlayerChoice (weapon) {
 }
 
 function playRound (computerChoice,userChoice) {
-    roundNumber.textContent = roundCount;
     roundCount++;
-    score.textContent = `Player Score: ${playerScore}   | Computer Score: ${computerScore}`;
 
     let winner = (computerChoice - userChoice + 2) % 3;
     
